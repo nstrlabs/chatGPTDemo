@@ -49,12 +49,14 @@ app.post('/init', async (req, res) => {
         // Add to conversation
         conversation.push(initialMsg);
 
-        const chatCompletion = await openai.chat.completions.create({
-            messages: [initialMsg], 
-            model: process.env.GPT_MODEL,
-        });
+        //const chatCompletion = await openai.chat.completions.create({
+        //    messages: [initialMsg], 
+        //    model: process.env.GPT_MODEL,
+        //});
 
-        const contentStr = chatCompletion.choices[0].message.content.trim();
+        //const contentStr = chatCompletion.choices[0].message.content.trim();
+
+        const contentStr = 'hola en que puedo ayudarte'
 
         // Add response to conversation
         conversation.push({

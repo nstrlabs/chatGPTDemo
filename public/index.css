@@ -14,10 +14,6 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    background-image: url('images/background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 main {    
@@ -26,6 +22,10 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* chatbot elements */
@@ -44,7 +44,7 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     justify-content: space-between;
-    height: 500px;
+    height: 700px;
 }
 
 .chatbot-container > * {
@@ -74,7 +74,7 @@ main {
 }
 
 .chatbot-conversation-container {
-    max-height: 250px;
+    max-height: 550px;
     min-height: 250px;
     overflow-y: scroll;
     margin: 1em 0;
@@ -97,6 +97,7 @@ main {
     color: var(--light-text);
     min-width: 100%;
     border-radius: var(--border-rad-lg); 
+    font-size: 12px; 
 }
 
 .speech:first-child {
@@ -146,7 +147,7 @@ button {
 /* text */
 
 h1 {
-    font-size: 15px;
+    font-size: 12px;
     color: var(--light-text);
     grid-area: title;
 }
@@ -156,7 +157,7 @@ h2, p {
 }
 
 h2 {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     grid-area: subtitle;
     text-transform: uppercase;
@@ -178,4 +179,28 @@ h2 {
     font-weight: 700;
     display: inline-block;
     animation: cursor-blink .5s steps(2) infinite;
+}
+
+.ai-icon {
+    width: 20px;  
+    height: 20px; 
+    margin-right: 1px; 
+    vertical-align: middle; 
+}
+
+.icon-container {
+    display: inline-block; 
+    vertical-align: text-top; 
+}
+
+.text-container {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px; 
+   
+}
+
+.text-container:first-child {
+    margin-top: 5;
+
 }

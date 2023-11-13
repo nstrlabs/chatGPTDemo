@@ -28,7 +28,7 @@ document.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const userInput = document.getElementById('user-input');
-    const userText = userInput.value; // Obtener el texto ingresado por el usuario
+    const userText = userInput.value;
 
     const newSpeechBubble = document.createElement('div');
     newSpeechBubble.classList.add('speech', 'speech-human');
@@ -43,7 +43,7 @@ document.addEventListener('submit', (e) => {
     userInput.value = '';
     chatbotConversation.scrollTop = chatbotConversation.scrollHeight;
 
-    fetchReply(input); // Pasar 'input' a 'fetchReply'
+    fetchReply(input); 
 });
 
 
@@ -101,12 +101,29 @@ function renderTypewriterText(text) {
     console.log(text)
     if (!text) {
         console.error('No text provided to renderTypewriterText');
-        // Considera mostrar un mensaje en la interfaz de usuario aquí
         return;
     }
-
     const newSpeechBubble = document.createElement('div');
-    newSpeechBubble.classList.add('speech', 'speech-ai', 'blinking-cursor');
+    newSpeechBubble.classList.add('speech', 'speech-ai');
+
+    const iconContainer = document.createElement('div');
+    iconContainer.classList.add('icon-container');
+
+    const icon = document.createElement('img'); 
+    icon.src = 'images/icon.png'; 
+    icon.classList.add('ai-icon');
+    iconContainer.appendChild(icon);
+
+    newSpeechBubble.appendChild(iconContainer);
+
+    // Crear el elemento <br> y añadirlo
+    const breakElement = document.createElement('br');
+    newSpeechBubble.appendChild(breakElement);
+
+    const textContainer = document.createElement('div');
+    textContainer.classList.add('text-container');
+    newSpeechBubble.appendChild(textContainer);
+
     chatbotConversation.appendChild(newSpeechBubble);
 
     let i = 0;
@@ -117,7 +134,8 @@ function renderTypewriterText(text) {
             return;
         }
 
-        newSpeechBubble.textContent += text[i];
+        const textNode = document.createTextNode(text[i]);
+        textContainer.appendChild(textNode);
         i++;
         chatbotConversation.scrollTop = chatbotConversation.scrollHeight;
     }, 50);
