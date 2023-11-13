@@ -1,11 +1,7 @@
 # chatGPTDemo
 Demo about how use chatGPT to parse, build message and pipelelines creator
 
-node server_pcl.js 
-node server_msgbuilder.js 
-node server_pipeline.js 
 
-Also, you must to create a .env file with the API key. An example in .env_example
 
 ## Prerequisites
 
@@ -18,13 +14,15 @@ You can check your current versions with these commands:
 node -v
 npm -v
 
+Also, you must to create a .env file with the API key. An example in .env_example
+
 ## Installation
 
 To install and run this project locally, follow these steps:
 
 \```bash
-git clone https://github.com/beetecu/chatgptTemplate.git
-cd chatgptTemplate
+git clone https://github.com/nstrlabs/chatGPTDemo.git
+cd chatGPTDemo
 npm install
 \```
 
