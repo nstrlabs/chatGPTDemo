@@ -26,7 +26,21 @@ To install and run this project locally, follow these steps:
 git clone https://github.com/beetecu/chatgptTemplate.git
 cd chatgptTemplate
 npm install
-npm start
+\```
+
+to run the parser assistant service use:
+\```bash
+node server_pcl.js 
+\```
+
+to run the message builder asistance  use:
+\```bash
+node server_msgbuilder.js 
+\```
+
+to run the pipeline assistance use:
+\```bash
+node server_msgbuilder.js 
 \```
 
 ## Usage
