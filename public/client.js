@@ -117,8 +117,8 @@ function renderTypewriterText(text) {
     newSpeechBubble.appendChild(iconContainer);
 
     // Crear el elemento <br> y añadirlo
-    const breakElement = document.createElement('br');
-    newSpeechBubble.appendChild(breakElement);
+    // const breakElement = document.createElement('br');
+    // newSpeechBubble.appendChild(breakElement);
 
     const textContainer = document.createElement('div');
     textContainer.classList.add('text-container');
