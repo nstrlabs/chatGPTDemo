@@ -110,7 +110,7 @@ function renderTypewriterText(text) {
     iconContainer.classList.add('icon-container');
 
     const icon = document.createElement('img'); 
-    icon.src = 'images/icon.png'; 
+    icon.src = 'images/icon.svg'; 
     icon.classList.add('ai-icon');
     iconContainer.appendChild(icon);
 
