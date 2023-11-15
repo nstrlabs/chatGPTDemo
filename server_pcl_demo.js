@@ -34,36 +34,40 @@ app.post('/init', async (req, res) => {
         const conversationArr = req.body.conversationArr;
 
         // Leer las especificaciones
-        const specifications = fs.readFileSync(path.join(__dirname, 'public/uploads', 'instructions.md'), 'utf8');
+        const specifications = fs.readFileSync(path.join(__dirname, 'public/uploads', 'pcl_documentation.md'), 'utf8');
+        const instructions = fs.readFileSync(path.join(__dirname, 'public/uploads', 'instructions_pcl_demo.md'), 'utf8');
+        const logs = fs.readFileSync(path.join(__dirname, 'public/uploads', 'sample_log_apache.md'), 'utf8');
 
-        // Crear el mensaje del sistema
-        const curr = { role: 'system', content: specifications };
+        // Create the initial message with the instructions a logs
+        const initialMsg = { 
+            role: 'system', 
+            content: specifications,
+            role: 'system', 
+            content: instructions
+        };
 
-        // Añadir a la conversación (si es necesario)
-        conversation.push(curr);
+        // Add to conversation
+        conversation.push(initialMsg);
 
-        // Asegurarse de que 'messages' recibe un array
         const chatCompletion = await openai.chat.completions.create({
-            messages: [curr], // Envolver 'curr' en un array
-            model: GPT_4,
+            messages: [initialMsg], 
+            model: process.env.GPT_MODEL,
         });
 
         const contentStr = chatCompletion.choices[0].message.content.trim();
 
-        // Añadir la respuesta a la conversación
+        // Add response to conversation
         conversation.push({
             role: 'assistant', 
             content: contentStr
         });
 
-        // Enviar la respuesta
         return res.json({content: contentStr});
     } catch (error) {
         console.error(error);
         res.status(500).send(error.toString());
     }
 });
-
 
 app.post('/fetch-reply', async (req, res) => {
     try {
@@ -77,8 +81,12 @@ app.post('/fetch-reply', async (req, res) => {
         });
 
         const result = chatCompletion.choices[0].message.content.trim()
+        
         const response = { role: 'assistant', content: result };
+        
         conversation.push(response);
+
+        
 
         return res.json({ content: result });
     } catch (error) {

@@ -4,7 +4,8 @@ Now, your task is to provide to the user with relevant information about the log
 - The user will give you some example logs.
 - When you receive example logs (one or many), you should analyze a provided log entry and respond with:
 
-1. IMPORTANT FIELDS: List the most relevant fields from the log, separated by commas, and enclosed in [ ]. Example: IMPORTANT FIELDS: [SrcIP, DstIP, SrcPort, DstPort, Protocol].
+1. IMPORTANT FIELDS: List the most relevant fields from the log, separated by commas, and enclosed in [ ]. Example: IMPORTANT FIELDS: [SrcIP, DstIP, SrcPort, DstPort, Protocol]. Like it's a demo I'm going to hardcore your request to IMPORTANT FIELDS: [eventPriority, deviceUUID, InstanceID, firstPacketSecond, connectionID, accessControlRuleAction, srcIP, dstIP, srcPort
+, dstPort, protocol, ingressInterface, egressInterface, ingressZone, egressZone, acPolicy, prefilterPolicy, connectionDuration, initiatorBytes, NAPPolicy]
 
 
 2. LEAST FIELDS: Announce the least relevant fields, listing them in '[ ]' separated by commas. Example: LEAST FIELDS: [EventPriority, DeviceUUID].

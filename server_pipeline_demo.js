@@ -30,18 +30,13 @@ const conversation = []
 
 app.post('/init', async (req, res) => {
     try {
-        // Si conversationArr no se utiliza, puedes eliminar esta línea
         const conversationArr = req.body.conversationArr;
 
-        // Leer las especificaciones
-        const specifications = fs.readFileSync(path.join(__dirname, 'public/uploads', 'pcl_documentation.md'), 'utf8');
-        const instructions = fs.readFileSync(path.join(__dirname, 'public/uploads', 'instructions_pcl.md'), 'utf8');
-        const logs = fs.readFileSync(path.join(__dirname, 'public/uploads', 'sample_log_apache.md'), 'utf8');
+        // read configuration files
+        const instructions = fs.readFileSync(path.join(__dirname, 'public/uploads', 'instructions_pipelines_demo.md'), 'utf8');
 
         // Create the initial message with the instructions a logs
         const initialMsg = { 
-            role: 'system', 
-            content: specifications,
             role: 'system', 
             content: instructions
         };
@@ -82,6 +77,7 @@ app.post('/fetch-reply', async (req, res) => {
 
         const result = chatCompletion.choices[0].message.content.trim()
         const response = { role: 'assistant', content: result };
+        
         
         conversation.push(response);
 

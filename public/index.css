@@ -30,16 +30,19 @@ html, body {
     overflow: hidden;
 }
 
-main {    
-    background-color: slategrey;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url('images/background.png');
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('images/back_pipelines.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    opacity: 0.5; /* Ajusta esto para cambiar la transparencia */
+    z-index: -1; /* Sitúa el fondo detrás del contenido */
 }
 
 /* chatbot elements */
@@ -54,7 +57,7 @@ main {
     padding: 1em;  
     position: fixed; 
     bottom: 20px; 
-    right: 20px; 
+    right: 650px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     justify-content: space-between;

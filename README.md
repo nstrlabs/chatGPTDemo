@@ -1,8 +1,6 @@
 # chatGPTDemo
 Demo about how use chatGPT to parse, build message and pipelelines creator
 
-
-
 ## Prerequisites
 
 Before installing, ensure you have the following software installed:

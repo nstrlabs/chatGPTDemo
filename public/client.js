@@ -54,7 +54,7 @@ async function fetchReply(input) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ input }), // Asegúrate de que esto coincida con lo que espera tu servidor
+            body: JSON.stringify({ input }),
         });
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function renderTypewriterText(text) {
-    console.log(text)
     if (!text) {
         console.error('No text provided to renderTypewriterText');
         return;
@@ -115,10 +114,6 @@ function renderTypewriterText(text) {
     iconContainer.appendChild(icon);
 
     newSpeechBubble.appendChild(iconContainer);
-
-    // Crear el elemento <br> y añadirlo
-    // const breakElement = document.createElement('br');
-    // newSpeechBubble.appendChild(breakElement);
 
     const textContainer = document.createElement('div');
     textContainer.classList.add('text-container');
@@ -138,5 +133,5 @@ function renderTypewriterText(text) {
         textContainer.appendChild(textNode);
         i++;
         chatbotConversation.scrollTop = chatbotConversation.scrollHeight;
-    }, 50);
+    }, 20);
 }
